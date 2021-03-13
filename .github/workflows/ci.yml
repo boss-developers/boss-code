@@ -223,6 +223,7 @@ jobs:
         run: |
           curl -sSfLO https://raw.githubusercontent.com/Ortham/ci-scripts/2.1.2/install_boost.py
           python install_boost.py --directory ${{ github.workspace }} --boost-version 1.72.0 -a ${{ steps.boost-metadata.outputs.address-model }} locale system
+          ls ${{ steps.boost-metadata.outputs.root }}
         if: steps.boost-cache.outputs.cache-hit != 'true'
 
       - name: Run CMake
